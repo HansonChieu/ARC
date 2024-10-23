@@ -1466,6 +1466,14 @@ html {
   z-index: 1;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.m-12 {
+  margin: 3rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -1476,6 +1484,10 @@ html {
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .hidden {
@@ -1492,6 +1504,10 @@ html {
 
 .w-52 {
   width: 13rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .items-center {
@@ -1521,6 +1537,10 @@ html {
   line-height: 1.75rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1530,12 +1550,11 @@ html {
 .navbar {
   font-family: "Verdana", sans-serif;
   color: aliceblue;
-  background-color: #a31621;
-  /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.863); */
+  background-color: rgba(41, 55, 106, 0.429);
 }
 
-:root{
-  background-color: #bfdbf7;
+:root {
+  background-color: rgb(45, 50, 57);
 }
 
 .navbar-start {
@@ -1570,15 +1589,23 @@ html {
   font-style: normal;
 }
 
-.btn{
+.btn {
   padding: 0px 5px 0px 5px;
   margin-right: 2em;
-  height:auto;
+  height: auto;
 }
 
-.logo{
+.logo {
   height: 50px;
   padding: 4px;
+}
+
+body {
+  color: aliceblue;
+}
+
+.mission {
+  font-size: 40px;
 }
 
 @media (min-width: 1024px) {

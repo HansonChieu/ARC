@@ -3,54 +3,60 @@
 @tailwind utilities;
 
 .navbar {
-    font-family: "Verdana", sans-serif;
-    color: aliceblue;
-    background-color: #a31621;
-    /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.863); */
-  }
-
-:root{
-    background-color: #bfdbf7;
+  font-family: "Verdana", sans-serif;
+  color: aliceblue;
+  background-color: rgba(41, 55, 106, 0.429);
 }
-  .navbar-start {
-    width: 45%;
-    justify-content: flex-start;
-  }
-  
-  :where(.menu li) {
-    margin-right: 1.5em;
-  }
-  
-  .dropdown-content {
-    color: black;
-  }
-  
-  @media (hover: hover) {
-    .menu li > *:not(ul, .menu-title, details, .btn):hover {
-      background-color: rgba(19, 19, 49, 0.411);
-    }
-  }
-  
-  .text-xl {
-    font-family: "Mulish", sans-serif;
-    font-size: 1.6em;
-    font-weight: 600;
-    margin-left: 2em;
-  }
-  
-  .mulish {
-    font-family: "Mulish", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-  }
-  
-  .btn{
-    padding: 0px 5px 0px 5px;
-    margin-right: 2em;
-    height:auto;
-  }
 
-  .logo{
-    height: 50px;
-    padding: 4px;
+:root {
+  background-color: rgb(45, 50, 57);
+}
+.navbar-start {
+  width: 45%;
+  justify-content: flex-start;
+}
+
+:where(.menu li) {
+  margin-right: 1.5em;
+}
+
+.dropdown-content {
+  color: black;
+}
+
+@media (hover: hover) {
+  .menu li > *:not(ul, .menu-title, details, .btn):hover {
+    background-color: rgba(19, 19, 49, 0.411);
   }
+}
+
+.text-xl {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6em;
+  font-weight: 600;
+  margin-left: 2em;
+}
+
+.mulish {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.btn {
+  padding: 0px 5px 0px 5px;
+  margin-right: 2em;
+  height: auto;
+}
+
+.logo {
+  height: 50px;
+  padding: 4px;
+}
+body {
+  color: aliceblue;
+}
+
+.mission {
+  font-size: 40px;
+}
