@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ARC-WorkoutsAi</title>
+  </head>
+  <body>
+    <%-include('partials/header', {page: '/workouts'})%>
+
+    <h1 class="mt-5 ml-16">My Personal AI Trainer</h1>
+    <p class="mt-4 ml-16">
+      <em
+        >Enter your body information and fitness goals so your AI trainer can
+        assist you</em
+      >
+    </p>
+    <hr class="mt-4 w-1/2 mx-12" />
+    <div class="card max-w-[50%] shrink-0 shadow-2xl mt-4 ml-12">
+      <form class="card-body p-2">
+        <div class="form-control">
+          <h2 class="ml-12">Enter Parameters</h2>
+          <h3 class="mt-4 ml-20">Select Sex</h3>
+          <div class="flex mt-4 ml-20">
+            <div class="flex flex-col items-center">
+              <img class="w-20" src="/AthleticFemale.png" alt="female" />
+              <p>Female</p>
+              <input type="radio" name="gender" class="radio" />
+            </div>
+            <div class="flex flex-col items-center ml-6">
+              <img class="w-20" src="/AthleticMale.png" alt="male" />
+              <p>Male</p>
+              <input type="radio" name="gender" class="radio" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
