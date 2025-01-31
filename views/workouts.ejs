@@ -13,49 +13,116 @@
     <title>ARC-WorkoutsAi</title>
   </head>
   <body>
-    <%-include('partials/header', {page: '/workouts'})%>
+    <%- include('partials/header', { page: '/workouts' }) %>
 
-    <h1 class="mt-5 ml-16">My Personal AI Trainer</h1>
-    <p class="mt-4 ml-16">
-      <em
-        >Enter your body information and fitness goals so your AI trainer can
-        assist you</em
-      >
-    </p>
-    <hr class="mt-4 w-1/2 mx-12" />
-    <div class="card max-w-[50%] shrink-0 shadow-2xl mt-4 ml-12">
-      <form class="card-body p-4">
-        <div class="form-control">
-          <h2 class="ml-12">Enter Parameters</h2>
-          <h3 class="mt-4 ml-12">Select Sex</h3>
-          <div class="flex mt-4 ml-20">
-            <div class="flex flex-col items-center">
-              <img class="w-20" src="/AthleticFemale.png" alt="female" />
-              <p>Female</p>
-              <input type="radio" name="gender" class="radio" />
-            </div>
-            <div class="flex flex-col items-center ml-6">
-              <img class="w-20" src="/AthleticMale.png" alt="male" />
-              <p>Male</p>
-              <input type="radio" name="gender" class="radio" />
-            </div>
+    <main class="container mx-auto p-4">
+      <h1 class="mt-5 text-3xl font-bold">My Personal AI Trainer</h1>
+      <p class="mt-4 text-gray-600">
+        <em>Enter your body information and fitness goals so your AI trainer can assist you</em>
+      </p>
+
+      <hr class="my-4" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Form Column -->
+        <div class="col-span-1">
+          <div class="card shadow-2xl p-6">
+            <form class="space-y-6" method="POST" id="workoutForm">
+              <h2 class="text-xl font-bold">Enter Parameters</h2>
+
+              <!-- Gender Selection -->
+              <div>
+                <h3 class="text-lg font-semibold">Select Sex</h3>
+                <div class="flex mt-4 space-x-8">
+                  <label class="flex flex-col items-center cursor-pointer">
+                    <img class="w-20" src="/AthleticFemale.png" alt="Female icon" />
+                    <p>Female</p>
+                    <input type="radio" name="gender" value="female" class="radio" required />
+                  </label>
+                  <label class="flex flex-col items-center cursor-pointer">
+                    <img class="w-20" src="/AthleticMale.png" alt="Male icon" />
+                    <p>Male</p>
+                    <input type="radio" name="gender" value="male" class="radio" required />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Age Selection -->
+              <div>
+                <h3 class="text-lg font-semibold">Select Age</h3>
+                <input
+                  type="number"
+                  name="age"
+                  placeholder="Age"
+                  class="input input-bordered w-1/2 mt-4 text-black"
+                  min="10"
+                  max="100"
+                  required
+                />
+              </div>
+
+              <!-- Experience Level Selection -->
+              <div>
+                <h3 class="text-lg font-semibold">Select Experience (Beginner to Expert)</h3>
+                <input
+                  id="experienceRange"
+                  name="experience"
+                  type="range"
+                  min="0"
+                  max="75"
+                  value="25"
+                  class="range w-full mt-4"
+                  step="25"
+                />
+                <div class="flex justify-between text-xs mt-2">
+                  <span>Beginner</span>
+                  <span>Intermediate</span>
+                  <span>Advanced</span>
+                  <span>Expert</span>
+                </div>
+              </div>
+
+              <!-- Fitness Goal -->
+              <div>
+                <h3 class="text-lg font-semibold">Select Fitness Goal</h3>
+                <div class="flex mt-4 space-x-6">
+                  <label class="flex items-center">
+                    <input type="radio" name="fitnessGoal" value="LoseWeight" class="radio" required />
+                    <span class="ml-2">Lose Weight</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="fitnessGoal" value="GainMuscle" class="radio" required />
+                    <span class="ml-2">Gain Muscle</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="fitnessGoal" value="GainStrength" class="radio" required />
+                    <span class="ml-2">Gain Strength</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="mt-6 flex justify-center">
+                <button type="submit" class="btn btn-primary px-20 py-4" id="generate">
+                  <span>Generate Workout Plan</span>
+                  <span hidden class="loading loading-dots loading-sm" role="status" aria-hidden="true"></span>
+                </button>
+              </div>
+            </form>
           </div>
-          <div>
-            <h3 class="mt-10 ml-12 ">Select Age</h3>
-            <input type="number" placeholder="Age" class="input input-bordered w-1/6 mt-4 ml-20 text-black" />
-          </div>
-          <div>
-            <h3 class="mt-10 ml-12">Select experience (Beginner to Expert)</h3>
-            <input id="experienceRange" type="range" min="0" max="75" value="25" class="range w-2/3 ml-20 mt-4" step="25" />
-            <div class="flex justify-between px-1 text-xs w-2/3 ml-20">
-              <div class="level-label flex flex-col items-center"><span>|</span><span>Beginner</span></div>
-              <div class="level-label flex flex-col items-center"><span>|</span><span>Intermediate</span></div>
-              <div class="level-label flex flex-col items-center"><span>|</span><span>Advanced</span></div>
-              <div class="level-label flex flex-col items-center"><span>|</span><span>Expert</span></div>
+        </div>
+
+        <!-- Output Column -->
+        <div class="col-span-1">
+          <div class="card shadow-2xl p-6">
+            <h2 class="text-xl font-bold text-center">Generated Workout Plan</h2>
+            <div id="workoutOutput" class="mt-4">
+              <!-- The workout routine will be displayed here -->
             </div>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </main>
+    <script type="module" src="/app.js"></script>
   </body>
 </html>

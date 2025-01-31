@@ -45,7 +45,7 @@
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 0.2cm;
   color: aliceblue;
   background-color: transparent;
   padding: 0px 5px 0px 5px;
@@ -83,3 +83,18 @@ h3 {
   background-color: rgba(101, 106, 124, 0.459);
 }
 
+.card-body {
+  max-height: 700px; 
+  overflow-y: auto;
+}
+
+#generate{
+  border-radius: 0.2cm;
+  background-color: rgba(119, 133, 182, 0.459);
+  color: rgb(255, 255, 255);
+  border-color: transparent; 
+}
+
+p{
+  color:aliceblue;
+}
