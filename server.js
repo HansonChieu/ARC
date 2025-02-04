@@ -7,8 +7,8 @@ const cors =require('cors');
 
 app.use(cors()); 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, '../views'));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json()); // For parsing application/json
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
@@ -66,3 +66,5 @@ app.post('/api/chat', async (req, res) => {
 const HTTP_PORT = process.env.PORT || 8080; // assign a port
 // start the server on the port and output a confirmation to the console
 app.listen(HTTP_PORT, () => console.log(`server listening on: ${HTTP_PORT}`));
+
+module.exports = app;
