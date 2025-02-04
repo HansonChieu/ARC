@@ -23,6 +23,12 @@ app.get('/workouts', (req, res) => {
   res.render('workouts');
 });
 
+app.post('/workouts', (req, res) => {
+  // Handle the POST request for /workouts route
+  // You can extract data from req.body and process it
+  res.json({ message: 'Workout POST request received' });
+});
+
 app.post('/api/chat', async (req, res) => {
   const { sex, age, experience, goal } = req.body;
 
